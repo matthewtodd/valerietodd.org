@@ -1,0 +1,51 @@
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone
+resource "aws_route53_zone" "main" {
+  name = "valerietodd.org"
+}
+
+output "name_servers" {
+  value = aws_route53_zone.main.name_servers
+}
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
+resource "aws_route53_record" "a" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "valerietodd.org"
+  type    = "A"
+  ttl     = 3600
+  records = [
+    "185.199.108.153",
+    "185.199.109.153",
+    "185.199.110.153",
+    "185.199.111.153"
+  ]
+}
+
+resource "aws_route53_record" "aaaa" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "valerietodd.org"
+  type    = "AAAA"
+  ttl     = 3600
+  records = [
+    "2606:50c0:8000::153",
+    "2606:50c0:8001::153",
+    "2606:50c0:8002::153",
+    "2606:50c0:8003::153"
+  ]
+}
+
+resource "aws_route53_record" "github_pages_challenge" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "_github-pages-challenge-matthewtodd.valerietodd.org"
+  type    = "TXT"
+  ttl     = 3600
+  records = ["7c95ff0cac53314b7837fac5839812"]
+}
+
+resource "aws_route53_record" "www" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "www.valerietodd.org"
+  type    = "CNAME"
+  ttl     = 3600
+  records = ["ghs.googlehosted.com"]
+}
