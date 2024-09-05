@@ -34,6 +34,17 @@ resource "aws_route53_record" "aaaa" {
   ]
 }
 
+resource "aws_route53_record" "mx" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "valerietodd.org"
+  type    = "MX"
+  ttl     = 3600
+  records = [
+    "1 smtp.google.com.",
+    "15 6ry7ut43vtxghvtw2qo4v2kcpwil5wszn3yayjsoceioppearapa.mx-verification.google.com."
+  ]
+}
+
 resource "aws_route53_record" "github_pages_challenge" {
   zone_id = aws_route53_zone.main.zone_id
   name    = "_github-pages-challenge-matthewtodd.valerietodd.org"
