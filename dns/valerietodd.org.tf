@@ -45,6 +45,22 @@ resource "aws_route53_record" "mx" {
   ]
 }
 
+resource "aws_route53_record" "spf" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "valerietodd.org"
+  type    = "SPF"
+  ttl     = 3600
+  records = ["v=spf1 include:_spf.google.com ~all"]
+}
+
+resource "aws_route53_record" "txt" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "valerietodd.org"
+  type    = "TXT"
+  ttl     = 3600
+  records = ["v=spf1 include:_spf.google.com ~all"]
+}
+
 resource "aws_route53_record" "github_pages_challenge" {
   zone_id = aws_route53_zone.main.zone_id
   name    = "_github-pages-challenge-matthewtodd.valerietodd.org"
