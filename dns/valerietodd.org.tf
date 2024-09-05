@@ -58,7 +58,7 @@ resource "aws_route53_record" "domainkey" {
   name    = "google._domainkey.valerietodd.org"
   type    = "TXT"
   ttl     = 3600
-  records = ["v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxeWCAfQp6HdIJiaAd6RqD6Gbrw1zqxxYMsyCim2j9HG6DF5DlMeZp0T5Wv7soaipNhgSO/sjqJgy8kpJs8OkvvTm9QhplIPqZ1qkJjoDN4Ji7jBSyHQ9kIgLnq3OJJraC3ndXbK7JoFE49DdW4RFID27oCH+0jnJLivBZBEeEQk/Rqw5BmYClHXcKxt2mpiO7px6tioXldfbW/3JBH2I2Ow7OEPX1hS2vTbI2g7SpUic5Jh1khn5+DG/FKSXcrdlIZTeT+OMEYwcwKDp368UAVkFiJ43QzWa4Oinkzz4k4VbxeUh1CgxkDtziKqmNR2K574IBnpeWBAfbheCmZ9TjwIDAQAB"]
+  records = ["v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxeWCAfQp6HdIJiaAd6RqD6Gbrw1zqxxYMsyC\"\"im2j9HG6DF5DlMeZp0T5Wv7soaipNhgSO/sjqJgy8kpJs8OkvvTm9QhplIPqZ1qkJjoDN4Ji7jBSyHQ9\"\"kIgLnq3OJJraC3ndXbK7JoFE49DdW4RFID27oCH+0jnJLivBZBEeEQk/Rqw5BmYClHXcKxt2mpiO7px6\"\"tioXldfbW/3JBH2I2Ow7OEPX1hS2vTbI2g7SpUic5Jh1khn5+DG/FKSXcrdlIZTeT+OMEYwcwKDp368U\"\"AVkFiJ43QzWa4Oinkzz4k4VbxeUh1CgxkDtziKqmNR2K574IBnpeWBAfbheCmZ9TjwIDAQAB"]
 }
 
 resource "aws_route53_record" "www" {
