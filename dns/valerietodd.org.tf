@@ -90,5 +90,5 @@ resource "aws_route53_record" "www" {
   name    = "www.valerietodd.org"
   type    = "CNAME"
   ttl     = 3600
-  records = ["ghs.googlehosted.com"]
+  records = ["matthewtodd.github.io"]
 }
